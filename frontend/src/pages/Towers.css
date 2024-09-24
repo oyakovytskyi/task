@@ -1,0 +1,38 @@
+.items-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.item-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.item-info h3 {
+  margin: 0;
+}
+
+.item-info p {
+  margin: 5px 0;
+}
