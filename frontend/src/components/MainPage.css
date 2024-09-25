@@ -27,17 +27,25 @@
 }
 
 .main-content h1 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 3rem;
-  font-weight: bold;
   margin-bottom: 20px;
 }
 
 .main-content p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.25rem;
   margin-bottom: 20px;
 }
 
 .main-btn {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
   padding: 10px 20px;
   border: 2px solid white;
   background-color: transparent;

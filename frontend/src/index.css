@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --color-white: #ffffff;
+  --color-button: #b29f7e;
+}
 body {
   margin: 0;
 }

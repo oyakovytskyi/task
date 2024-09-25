@@ -9,6 +9,11 @@ import { Item, User } from './user.entity';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 
+interface LoginResponse {
+  user: User;
+  accessToken: string;
+}
+
 @Injectable()
 export class AuthService {
   constructor(
@@ -17,7 +22,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(email: string, password: string): Promise<User | null> {
+  async login(email: string, password: string): Promise<LoginResponse> {
     const user = await this.userRepository.findOne({ where: { email } });
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
@@ -31,7 +36,7 @@ export class AuthService {
     const payload = { email: user.email, sub: user.id };
     const accessToken = this.jwtService.sign(payload);
 
-    return { accessToken };
+    return { user, accessToken };
   }
 
   async signup(email: string, password: string) {
@@ -50,6 +55,11 @@ export class AuthService {
 
     await this.userRepository.save(newUser);
     return { message: 'User created successfully', newUser };
+  }
+
+  async validateUser(userId: number): Promise<User | null> {
+    const user = await this.userRepository.findOne({ where: { id: userId } });
+    return user || null;
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import cityLoginImg from "../assets/city-login.png";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <img src="../assets/city-login" alt="Beautiful city" />
+      <img src={cityLoginImg} alt="Beautiful city" />
       <form onSubmit={handleSignUp} className="signup-form">
         <h2>Sign Up</h2>
         <input
@@ -50,7 +51,7 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
         <p>
-          Already have an account?{" "}
+          Already have an account?
           <span onClick={() => navigate("/login")} className="login-link">
             Login
           </span>

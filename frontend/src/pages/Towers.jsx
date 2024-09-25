@@ -4,10 +4,16 @@ import "./Towers.css";
 
 const Towers = () => {
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/items");
+        const token = localStorage.getItem("token");
+        const response = await axios.get("http://localhost:5000/api/items", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setItems(response.data);
       } catch (error) {
         console.error("Error fetching items:", error);

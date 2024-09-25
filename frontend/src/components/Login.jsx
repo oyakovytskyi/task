@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginSuccess, loginFailure } from "../store/authSlice";
+import cityLoginImg from "../assets/city-login.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,7 +18,13 @@ const Login = () => {
         email,
         password,
       });
-      dispatch(loginSuccess(response.data));
+      const { accessToken: token, user } = response.data;
+
+      localStorage.setItem("token", token);
+
+      dispatch(loginSuccess({ token, user }));
+
+      navigate("/");
     } catch (error) {
       dispatch(loginFailure(error.response?.data?.message || "Login failed"));
     }
@@ -25,7 +32,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <img src="../assets/city-login" alt="Beautiful city" />
+      <img src={cityLoginImg} alt="Beautiful city" />
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
         <input

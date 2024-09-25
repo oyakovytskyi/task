@@ -5,16 +5,20 @@ import ErrorPage from "./pages/Error";
 import RootLayout from "./components/RootLayout";
 import Towers from "./pages/Towers";
 import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import { action as logoutAction } from "./pages/Logout";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    id: "root",
     children: [
       { index: true, element: <MainPage /> },
       { path: "towers", element: <Towers /> },
-      { path: "sign-up", element: <SignUp /> },
+      { path: "signup", element: <SignUp /> },
+      { path: "login", element: <Login /> },
+      { path: "logout", action: logoutAction, element: null },
     ],
   },
 ]);

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
   const navigate = useNavigate();
-
   const handleGetStarted = () => {
     navigate("/towers");
   };

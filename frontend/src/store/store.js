@@ -5,6 +5,7 @@ const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export default store;
