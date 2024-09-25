@@ -51,7 +51,8 @@ button[type="submit"]:hover {
   background-color: #856a42;
 }
 
-p {
+.signup-text,
+.login-text {
   margin-top: 20px;
 }
 

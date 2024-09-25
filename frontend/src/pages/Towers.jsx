@@ -25,18 +25,28 @@ const Towers = () => {
 
   return (
     <>
-      <div className="items-header">Open Deals</div>
+      <h2 className="items-header">Open Deals</h2>
       <div className="items-container">
         {items.map((item) => (
           <div className="item-card" key={item.id}>
             <img src={item.imageURL} alt={item.name} className="item-image" />
             <div className="item-info">
               <h3>{item.name}</h3>
-              <p>Price: ${Number(item.price).toFixed(2)}</p>
-              <p>Ticket: {item.ticket}</p>
-              <p>Yield: {Number(item.yield).toFixed(2)}%</p>
-              <p>Days Left: {item.daysLeft}</p>
-              <p>Sold: {Number(item.soldPercentage).toFixed(2)}%</p>
+              <div className="item-info-column">
+                <p>{Number(item.price).toFixed(2)} Dhs</p>
+              </div>
+              <div className="item-info-column">
+                <p>Yield {Number(item.yield).toFixed(2)}%</p>
+              </div>
+              <div className="item-info-column">
+                <p>Sold {Number(item.soldPercentage).toFixed(2)}%</p>
+              </div>
+              <div className="item-info-column">
+                <p>Ticket - {item.ticket} Dhs</p>
+              </div>
+              <div className="item-info-column">
+                <p>Days left {item.daysLeft}</p>
+              </div>
             </div>
           </div>
         ))}

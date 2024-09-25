@@ -1,3 +1,9 @@
+.items-header {
+  text-align: center;
+  font-size: 28px;
+  color: var(--color-button);
+}
+
 .items-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -11,6 +17,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .item-image {
@@ -24,21 +31,24 @@
   bottom: 0;
   left: 0;
   right: 0;
-  color: white;
-  padding: 10px;
-  text-align: left;
+  color: var(--color-white);
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.item-info h3 {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  font-style: normal;
-  margin: 0;
-}
-
-.item-info p {
+.item-info-column {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-style: normal;
-  margin: 5px 0;
+  margin: 0;
+  font-size: 18px;
+  width: 33%;
+  text-align: left;
+  line-height: 0.1;
+}
+.item-info h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  width: 100%;
 }
