@@ -50,7 +50,7 @@ const SignUp = () => {
           required
         />
         <button type="submit">Sign Up</button>
-        <p>
+        <p className="signup-text">
           Already have an account?
           <span onClick={() => navigate("/login")} className="login-link">
             Login

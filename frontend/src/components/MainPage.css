@@ -1,6 +1,6 @@
 .main-container {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background-image: url("../assets/city-main.png");
   background-size: cover;
   background-position: center;

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       { path: "towers", element: <Towers /> },
       { path: "signup", element: <SignUp /> },
       { path: "login", element: <Login /> },
-      { path: "logout", action: logoutAction, element: null },
+      { path: "logout", action: logoutAction },
     ],
   },
 ]);
