@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import cityLoginImg from "../assets/city-login.png";
+import { backendBaseURL } from "../config";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", {
+      await axios.post(`${backendBaseURL}api/auth/signup`, {
         name,
         email,
         password,

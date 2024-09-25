@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Towers.css";
+import { backendBaseURL } from "../config";
 
 const Towers = () => {
   const [items, setItems] = useState([]);
@@ -9,7 +10,7 @@ const Towers = () => {
     const fetchItems = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/api/items", {
+        const response = await axios.get(`${backendBaseURL}api/items`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

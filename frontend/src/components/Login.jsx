@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginSuccess, loginFailure } from "../store/authSlice";
 import cityLoginImg from "../assets/city-login.png";
+import { backendBaseURL } from "../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post(`${backendBaseURL}api/auth/login`, {
         email,
         password,
       });
