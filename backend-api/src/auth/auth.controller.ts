@@ -1,7 +1,8 @@
-import { Controller, Post, Body, Res, Get } from '@nestjs/common';
+import { Controller, Post, Body, Res, Get, UseGuards } from '@nestjs/common';
 import { AuthService, ItemService } from './auth.service';
 import { Response } from 'express';
 import { Item } from './user.entity';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -41,6 +42,7 @@ export class ItemController {
   constructor(private readonly itemService: ItemService) {}
 
   @Get()
+  @UseGuards(AuthGuard('jwt'))
   async getAllItems(): Promise<Item[]> {
     return this.itemService.getAllItems();
   }
