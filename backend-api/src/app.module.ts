@@ -6,11 +6,11 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'users',
+      host: 'aws-0-eu-central-1.pooler.supabase.com',
+      port: 6543,
+      username: 'postgres.mzlqjrgfwrbsyzdggnyz',
+      password: 'oyakovytskyi',
+      database: 'postgres',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
