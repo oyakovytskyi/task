@@ -27,10 +27,7 @@
 }
 
 .main-content h1 {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 3rem;
+  font-size: 64px;
   margin-bottom: 20px;
 }
 
@@ -38,19 +35,17 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
 .main-btn {
-  font-family: "Merriweather", serif;
-  font-weight: 700;
-  font-style: normal;
   padding: 10px 20px;
-  border: 2px solid white;
+  border: 1px solid var(--color-white);
+  border-radius: 8px;
   background-color: transparent;
-  color: white;
-  font-size: 1rem;
+  color: var(--color-white);
+  font-size: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }

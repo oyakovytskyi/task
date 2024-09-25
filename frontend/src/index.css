@@ -2,8 +2,15 @@
   box-sizing: border-box;
 }
 :root {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 22px;
+
   --color-white: #ffffff;
   --color-button: #b29f7e;
+  --color-button-hover: #856a42;
+  --color-background: #172234;
 }
 body {
   margin: 0;

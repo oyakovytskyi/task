@@ -1,31 +1,35 @@
 import { Form, NavLink } from "react-router-dom";
 
-import classes from "./MainNavigation.module.css";
+import "./MainNavigation.css";
 import { useSelector } from "react-redux";
 
 function MainNavigation() {
   const token = useSelector((state) => state.auth.token);
   return (
-    <header className={classes.header}>
-      <nav>
-        <ul className={classes.list}>
+    <header className="header">
+      <nav className="nav">
+        <ul className="list">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
           {!token && (
             <li>
-              <NavLink to="login">Login</NavLink>
+              <NavLink to="login" className="login">
+                Login
+              </NavLink>
             </li>
           )}
           {!token && (
             <li>
-              <NavLink to="signup">Sign Up</NavLink>
+              <NavLink to="signup" className="button">
+                Sign Up
+              </NavLink>
             </li>
           )}
           {token && (
             <li>
               <Form action="logout" method="post">
-                <button>Logout</button>
+                <button className="button">Logout</button>
               </Form>
             </li>
           )}
