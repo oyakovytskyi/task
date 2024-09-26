@@ -31,7 +31,7 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${backendBaseURL}/auth/signup`, {
+      await axios.post(`${backendBaseURL}api/auth/signup`, {
         name,
         email,
         password,
