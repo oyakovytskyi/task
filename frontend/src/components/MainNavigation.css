@@ -10,31 +10,38 @@
   align-items: center;
 }
 
-.list {
+.nav-list {
   display: flex;
   flex: 1;
   justify-content: space-between;
   align-items: center;
 }
 
-.list li:first-child {
+.nav-list li:first-child {
   margin-right: auto;
 }
 
-.list a {
+.nav-list a {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 12px 0;
   text-decoration: none;
-  color: var(--color-white);
 }
 
-.list a:hover {
+.nav-home {
+  color: var(--color-button);
+}
+
+.nav-home:hover {
   color: var(--color-button-hover);
 }
 
-.button {
+.nav-button {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
   width: 160px;
   height: 44px;
   padding: 11px 0;
@@ -43,21 +50,21 @@
   color: var(--color-white);
   border: none;
   text-decoration: none;
-  gap: 10px;
+  margin-left: 10px;
 }
 
-.button:hover {
+.nav-button:hover {
   background: darken(var(--color-button), 1.5%);
   border: 1px solid rgba(var(--color-button-hover), 0.05);
   box-shadow: 1px 1px 2px rgba(#fff, 0.2);
-  color: lighten(var(--color-button), 18%);
+  color: var(--color-button);
   text-decoration: none;
   text-shadow: -1px -1px 0 darken(var(--color-button), 9.5%);
   transition: all 250ms linear;
   cursor: pointer;
 }
 
-.login {
+.nav-login {
   width: 160px;
   height: 44px;
   padding: 11px 0;
@@ -68,12 +75,11 @@
   gap: 10px;
 }
 
-.login:hover {
+.nav-login:hover {
   background: darken(var(--color-button), 1.5%);
   border: 1px solid rgba(var(--color-button-hover), 0.05);
   box-shadow: 1px 1px 2px rgba(#fff, 0.2);
-  color: lighten(var(--color-button), 18%);
-  text-decoration: none;
+  color: var(--color-white);
   text-shadow: -1px -1px 0 darken(var(--color-button), 9.5%);
   transition: all 250ms linear;
 }

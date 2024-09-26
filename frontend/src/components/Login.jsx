@@ -1,16 +1,31 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { loginSuccess, loginFailure } from "../store/authSlice";
+import { loginSuccess, loginFailure, clearError } from "../store/authSlice";
 import cityLoginImg from "../assets/city-login.png";
 import { backendBaseURL } from "../config";
+import { useEffect } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = useSelector((state) => state.auth.token);
+  const error = useSelector((state) => state.auth.error);
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate, dispatch]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearError());
+    };
+  }, [dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +51,9 @@ const Login = () => {
       <img src={cityLoginImg} alt="Beautiful city" />
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
         <input
           type="email"
           placeholder="Email"

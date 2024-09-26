@@ -3,12 +3,30 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import cityLoginImg from "../assets/city-login.png";
 import { backendBaseURL } from "../config";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { clearError, signupFailure } from "../store/authSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+  const error = useSelector((state) => state.auth.error);
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearError());
+    };
+  }, [dispatch]);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -20,7 +38,7 @@ const SignUp = () => {
       });
       navigate("/login");
     } catch (error) {
-      alert("Error during sign-up: " + error.response?.data?.message);
+      dispatch(signupFailure(error.response?.data?.message || "Signup failed"));
     }
   };
 
@@ -29,6 +47,9 @@ const SignUp = () => {
       <img src={cityLoginImg} alt="Beautiful city" />
       <form onSubmit={handleSignUp} className="signup-form">
         <h2>Sign Up</h2>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
         <input
           type="text"
           placeholder="Name"

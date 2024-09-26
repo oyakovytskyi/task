@@ -11,6 +11,7 @@ function MainNavigation() {
   const location = useLocation();
 
   const handleLogout = () => {
+    localStorage.removeItem("token");
     dispatch(logout());
     navigate("/login");
   };
@@ -18,27 +19,29 @@ function MainNavigation() {
   return (
     <header className="header">
       <nav className="nav">
-        <ul className="list">
+        <ul className="nav-list">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className="nav-home">
+              Home
+            </NavLink>
           </li>
           {!token && location.pathname !== "/login" && location.pathname !== "/signup" && (
             <li>
-              <NavLink to="login" className="login">
+              <NavLink to="login" className="nav-login">
                 Log In
               </NavLink>
             </li>
           )}
           {!token && location.pathname !== "/login" && location.pathname !== "/signup" && (
             <li>
-              <NavLink to="signup" className="button">
+              <NavLink to="signup" className="nav-button">
                 Sign Up
               </NavLink>
             </li>
           )}
           {token && (
             <li>
-              <button className="button" onClick={handleLogout}>
+              <button className="nav-button" onClick={handleLogout}>
                 Log Out
               </button>
             </li>

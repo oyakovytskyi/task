@@ -28,9 +28,12 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
     },
+    clearError: (state) => {
+      state.error = null;
+    },
   },
 });
 
-export const { loginSuccess, loginFailure, signupFailure, signupSuccess, logout } =
+export const { loginSuccess, loginFailure, signupFailure, signupSuccess, clearError, logout } =
   authSlice.actions;
 export default authSlice;
