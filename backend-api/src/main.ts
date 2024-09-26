@@ -8,6 +8,7 @@ async function bootstrap() {
   app.enableCors({
     origin: 'https://task-zenbit-frontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
     credentials: true,
   });
 
