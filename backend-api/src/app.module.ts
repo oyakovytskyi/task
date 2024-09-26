@@ -9,13 +9,13 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
+      useFactory: () => ({
         type: 'postgres',
-        host: configService.get<string>('DB_HOST'),
-        port: configService.get<number>('DB_PORT'),
-        username: configService.get<string>('DB_USERNAME'),
-        password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_DATABASE'),
+        host: 'aws-0-eu-central-1.pooler.supabase.com',
+        port: 6543,
+        username: 'postgres.mzlqjrgfwrbsyzdggnyz',
+        password: 'oyakovytskyi',
+        database: 'postgres',
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
       }),
