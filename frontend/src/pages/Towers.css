@@ -1,6 +1,8 @@
 .items-header {
   text-align: center;
   font-size: 28px;
+  margin: 20px 0;
+  line-height: 34px;
   color: var(--color-button);
 }
 
@@ -9,7 +11,8 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   max-width: 80vw;
-  height: 80vh;
+  height: calc(100vh - 154px);
+  padding-bottom: 12px;
   margin: 0 auto;
 }
 

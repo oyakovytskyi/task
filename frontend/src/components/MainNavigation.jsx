@@ -1,10 +1,20 @@
-import { Form, NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import "./MainNavigation.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/authSlice";
 
 function MainNavigation() {
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
   return (
     <header className="header">
       <nav className="nav">
@@ -12,14 +22,14 @@ function MainNavigation() {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
-          {!token && (
+          {!token && location.pathname !== "/login" && location.pathname !== "/signup" && (
             <li>
               <NavLink to="login" className="login">
-                Login
+                Log In
               </NavLink>
             </li>
           )}
-          {!token && (
+          {!token && location.pathname !== "/login" && location.pathname !== "/signup" && (
             <li>
               <NavLink to="signup" className="button">
                 Sign Up
@@ -28,9 +38,9 @@ function MainNavigation() {
           )}
           {token && (
             <li>
-              <Form action="logout" method="post">
-                <button className="button">Logout</button>
-              </Form>
+              <button className="button" onClick={handleLogout}>
+                Log Out
+              </button>
             </li>
           )}
         </ul>

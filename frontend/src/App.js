@@ -6,7 +6,6 @@ import RootLayout from "./components/RootLayout";
 import Towers from "./pages/Towers";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import { action as logoutAction } from "./pages/Logout";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +17,6 @@ const router = createBrowserRouter([
       { path: "towers", element: <Towers /> },
       { path: "signup", element: <SignUp /> },
       { path: "login", element: <Login /> },
-      { path: "logout", action: logoutAction },
     ],
   },
 ]);
