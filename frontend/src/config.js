@@ -1,3 +1,3 @@
-const backendBaseURL = "http://localhost:5000/";
+const backendBaseURL = "https://task-test-zenbit-backend.vercel.app/";
 
 export { backendBaseURL };
