@@ -1,3 +1,3 @@
-const backendBaseURL = "https://test-zenbit-4-42ojgc2hn-oyakovytskyidevs-projects.vercel.app/";
+const backendBaseURL = "https://test-zenbit-4.vercel.app/";
 
 export { backendBaseURL };
